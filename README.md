@@ -1,1 +1,1 @@
-# Proyecto_C-mputoParalelo
+# Proyecto_ComputoParalelo
