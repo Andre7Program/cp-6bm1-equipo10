@@ -45,6 +45,30 @@ DATOS:
 
 ¿QUÉ VERSIONES SE HARÁN? 
 
+Versión 1: Secuencial -> Línea base y perfilado
+
+Desarrollar un programa en lenguaje C que se ejecute en un único núcleo y un solo hilo de procesamiento. El algoritmo va a consistir en un ciclo iterativo masivo que generará N partes de coordenadas (x, y) de un punto flotante, evaluándose en la ecuación propuesta. 
+Esto con el objetivo de capturar el tiempo secuencial absoluto. 
+
+Versión 2: Memoria compartida (OpenMP)
+
+Para este proyecto se va a utilizar directivas de compilador OpenMP en C. El volumen de iteraciones N se fragmentará y se va a distribuir entre 12 hilos lógicos del procesador local, operando todos sobre el mismo espacio de memoria RAM. 
+
+Versión 3: Aceleración masiva por GPU (CUDA)
+
+Para escalar la simulación Monte Carlo, se va a desarrollar un Kernel en CUDA. En lugar de usar muchos hilos en el procesador principal, la carga computacional se va a distribuir en núcleos simultáneos en bloques dentro de la tarjeta gráfica (GPU).
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 
