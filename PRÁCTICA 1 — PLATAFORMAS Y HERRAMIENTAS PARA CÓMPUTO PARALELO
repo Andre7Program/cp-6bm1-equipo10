@@ -1,0 +1,13 @@
+1. Propósito y resultados de aprendizaje
+Antes de paralelizar hay que saber medir. En las Prácticas 2 y 3 y en el proyecto integrador, todo speedup se calcula
+contra la línea base secuencial que construyes hoy; una línea base mal medida invalida todo lo que sigue. Al terminar
+esta práctica, cada integrante podrá:
+• Preparar y verificar un entorno Linux con gcc/g++ (con soporte OpenMP), Python 3 y Git.
+• Describir el hardware sobre el que va a medir: núcleos físicos y lógicos, cachés, memoria, extensiones 
+vectoriales y GPU.
+• Medir tiempos de ejecución de forma reproducible: reloj correcto, calentamiento, repeticiones, promedio y 
+desviación estándar.
+• Construir una línea base secuencial, expresarla en GFLOPS y explicar cuánto cambia con el nivel de 
+optimización del compilador y con NumPy.
+• Ejecutar código en una GPU gratuita (Google Colab o Kaggle) y medirlo correctamente (sincronización).
+• Organizar el repositorio reproducible que usará el equipo durante todo el semestre.
