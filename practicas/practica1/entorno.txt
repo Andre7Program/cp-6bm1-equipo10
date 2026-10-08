@@ -1,0 +1,6 @@
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Python 3.12.3
+numpy 2.5.3
+git version 2.43.0
+#define _OPENMP 201511
