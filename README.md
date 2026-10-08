@@ -1,6 +1,6 @@
 # cp - 6bm1 - equipo10 - Cómputo Paralelo 6BM1 27/1
 
-Repositorio dek equipo 10 para las practicas 1-6 y el proyecto integrador.
+Repositorio de  equipo 10 para las practicas 1 - 6 y el proyecto integrador.
 
 ## Integrantes
 
@@ -12,7 +12,7 @@ Repositorio dek equipo 10 para las practicas 1-6 y el proyecto integrador.
 
 ## Fichas técnicas de hardware
 ### Herrera Monroy Abraham Andre
-| Campo | Vañor |
+| Campo | Valor |
 | :--- | :--- |
 | **Modelo de CPU** |
 | **Núcleos físicos / hilos lógicos
