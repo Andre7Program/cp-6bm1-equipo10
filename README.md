@@ -25,3 +25,34 @@ Repositorio de  equipo 10 para las practicas 1 - 6 y el proyecto integrador.
 | **Python/NumPy / BLAS** | Python: 3.12.3 / NumPy: 2.5.3 |
 | **GPU (si hay)** | NVIDIA GeForce RTX 4050 Laptop GPU |
 | **Condiciones** | Ejecutado en WSL2 bajo entorno virtual de Python. |
+
+
+### Marcelino Lopez Jessica
+| Campo | Valor |
+| :--- | :--- |
+| **Modelo de CPU** |  |
+| **Núcleos físicos / hilos lógicos** |  |
+| **Frecuencia base / turbo** |  |
+| **Caché L1/L2/L3** |  |
+| **Memoria RAM** |  |
+| **Extensiones vectoriales** |  |
+| **Sistema operativo y kernel** |  |
+| **Compilador** |  |
+| **Python/NumPy / BLAS** |  |
+| **GPU (si hay)** |  |
+| **Condiciones** |  |
+
+### Lobato Ramírez Ulises Uriel
+| Campo | Valor |
+| :--- | :--- |
+| **Modelo de CPU** |  |
+| **Núcleos físicos / hilos lógicos** |  |
+| **Frecuencia base / turbo** |  |
+| **Caché L1/L2/L3** |  |
+| **Memoria RAM** |  |
+| **Extensiones vectoriales** |  |
+| **Sistema operativo y kernel** |  |
+| **Compilador** |  |
+| **Python/NumPy / BLAS** |  |
+| **GPU (si hay)** |  |
+| **Condiciones** |  |
