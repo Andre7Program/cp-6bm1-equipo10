@@ -45,14 +45,14 @@ Repositorio de  equipo 10 para las practicas 1 - 6 y el proyecto integrador.
 ### Lobato Ramírez Ulises Uriel
 | Campo | Valor |
 | :--- | :--- |
-| **Modelo de CPU** |  |
-| **Núcleos físicos / hilos lógicos** |  |
-| **Frecuencia base / turbo** |  |
-| **Caché L1/L2/L3** |  |
-| **Memoria RAM** |  |
-| **Extensiones vectoriales** |  |
-| **Sistema operativo y kernel** |  |
-| **Compilador** |  |
-| **Python/NumPy / BLAS** |  |
-| **GPU (si hay)** |  |
-| **Condiciones** |  |
+| **Modelo de CPU** | AMD Ryzen 5 4600H con Radeon Graphics |
+| **Núcleos físicos / hilos lógicos** | 6 / 12 |
+| **Frecuencia base / turbo** | 3 GHz / 4 GHz |
+| **Caché L1/L2/L3** | 32 KB por núcleo / 512 KB por núcleo / 4MB compartida  |
+| **Memoria RAM** | 7.4 GiB (es la cantidad de memoria física que Windows le tiene asignada a WSL2) |
+| **Extensiones vectoriales** | AVX, AVX2, FMA, SSE4_2 |
+| **Sistema operativo y kernel** | Ubuntu en WSL2  |
+| **Compilador** | gcc 13.3.0 |
+| **Python/NumPy / BLAS** | Python 3.12.3 / Numpy 2.5.3 / OpenBLAS 0.3.34.106.0 |
+| **GPU (si hay)** | Gráficos integrados Radeon |
+| **Condiciones** | Laptop en modo ahorro de energía, con aplicaciones abiertas como WhatsApp, Brave y Explorador de archivos.  |
