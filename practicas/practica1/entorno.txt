@@ -1,6 +1,11 @@
+(cp-env) andre@PCLYCORIS2:~$ gcc --version | head -1
 gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+(cp-env) andre@PCLYCORIS2:~$ g++ --version | head -1
 g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+(cp-env) andre@PCLYCORIS2:~$ python3 --version && python3 -c "import numpy; print('numpy', numpy.__version__)"
 Python 3.12.3
 numpy 2.5.3
+(cp-env) andre@PCLYCORIS2:~$ git --version
 git version 2.43.0
+(cp-env) andre@PCLYCORIS2:~$ echo | gcc -fopenmp -dM -E - | grep -i openmp
 #define _OPENMP 201511
