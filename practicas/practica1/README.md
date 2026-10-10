@@ -27,7 +27,7 @@ cd .. && python3 scripts/plot.py  # resumen.csv + practica1.png
 | **Núcleos físicos / hilos lógicos** | 10 físicos / 16 hilos |
 | **Frecuencia base / turbo** | 2.40 GHz / 4.90 GHz |
 | **Caché L1/L2/L3** | L1: 640 KiB total / L2: 10 MiB / L3: 24 MiB |
-| **Memoria RAM** | [Coloca aquí tu RAM, ej. 16 GB] |
+| **Memoria RAM** | [16 GB] |
 | **Extensiones vectoriales** | AVX, AVX2, FMA, SSE4_1, SSE4_2 |
 | **Sistema operativo y kernel** | Ubuntu 24.04.1 LTS (vía WSL2 en Windows) |
 | **Compilador** | gcc (Ubuntu 13.3.0) / OpenMP 201511 |
