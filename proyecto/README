@@ -1,61 +1,47 @@
-Readme Proyecto
+# Proyecto Integrador: Estimación de $\pi$ mediante Simulación de Monte Carlo
+**Materia:** Cómputo Paralelo  
+**Equipo:** 10  
+**Fase Actual:** Propuesta H0 - Línea Base  
 
-# Proyecto de Cómputo Paralelo
+---
 
-"El proyecto consiste en estimar el valor de la constante matemática Pi, mediante una simulación de Monte Carlo masiva." 
+## 1. Descripción del Proyecto
+El presente proyecto tiene como objetivo estimar el valor de la constante matemática $\pi$ a través de una simulación masiva utilizando el método de Monte Carlo. 
 
-Se simulará la generación de N coordenadas aleatorias sobre un cuadrado de área 4 que inscribe un circulo de radio r = 1. La proporción entre los puntos que caen dentro del área del círculo (evaluados matemáticamente mediante la ecuación x^2 + y^2 <= 1 y el total de puntos generados, permitirá aproximar el valor de pi a medida que N tiende al infinito.
+La simulación consiste en generar $N$ coordenadas aleatorias $(x, y)$ dentro de un cuadrado de área 4 que inscribe un círculo de radio $r = 1$. La proporción de puntos que caen dentro del área del círculo —evaluados matemáticamente mediante la inecuación $x^2 + y^2 \leq 1$— respecto al total de puntos generados, permite aproximar el valor de $\pi$ a medida que $N$ tiende al infinito ($N \to \infty$).
 
-Definiciones a tener en cuenta:
+## 2. Marco Teórico y Conceptos Clave
+Para la evaluación del rendimiento de este proyecto, se establecen los siguientes conceptos fundamentales:
 
--Método de Monte Carlo: Técnica que usa la probabilidad y números aleatorios para aproximar el valor de pi (en este caso). En general, utiliza un muestreo aleatorio repetido para obtener la probabilidad de que ocurra una serie de resultados. 
--Tiempo secuencial: Es la medición de cuánto tarda el programa en resolver el problema con un solo hilo para tener un punto de comparación con una versión futura del programa. Para medir este tiempo se hace uso del Speedup..
+* **Método de Monte Carlo:** Técnica computacional que utiliza muestreo estadístico y generación de números aleatorios para aproximar expresiones matemáticas complejas. En este caso, se emplea para calcular probabilidades geométricas.
+* **Tiempo Secuencial:** Medición del tiempo total de ejecución que requiere el algoritmo para resolver el problema utilizando un único núcleo e hilo de procesamiento. Representa el punto de referencia absoluto.
+* **Speedup (Ganancia de Velocidad):** Métrica de rendimiento que cuantifica cuántas veces es más rápida la ejecución paralela en comparación con su contraparte secuencial ($S = T_{secuencial} / T_{paralelo}$).
 
-Speedup: Métrica matemática que nos dice cuántas veces es más rápido el programa en paralelo en comparación con el secuencial. 
+## 3. Fundamento Matemático
+El problema se puede visualizar mediante la analogía de lanzar dardos aleatorios sobre un tablero cuadrado de $2 \times 2$ metros que contiene un círculo inscrito de radio $r = 1$:
 
--Versión secuencial: Este se define como las instrucciones que se ejecutan una detrás de otra. Utilizando un solo núcleo del procesador. 
+* **Área del cuadrado:** $4r^2 = 4$
+* **Área del círculo:** $\pi r^2 = \pi$
 
-VERSIÓN SECUENCIAL (V1) ---> También es llamado "Línea base" --- H0 - Propuesta 
+Dado un muestreo aleatorio uniforme, la probabilidad exacta ($P$) de que una coordenada caiga dentro del círculo es equivalente a la proporción de las áreas: 
+$$P = \frac{\text{Área del círculo}}{\text{Área del cuadrado}} = \frac{\pi}{4}$$
 
-Equipo: 10
+Al multiplicar esta probabilidad experimental por 4, se aproxima el valor de $\pi$. Computacionalmente, la pertenencia al círculo se determina calculando la hipotenusa desde el origen $(0,0)$ usando el Teorema de Pitágoras:
+* Si $x^2 + y^2 \leq 1$, el punto se encuentra **dentro** del círculo.
+* Si $x^2 + y^2 > 1$, el punto se encuentra **fuera** del círculo.
 
-Problema candidato: Estimación de Pi (H0)
+## 4. Justificación de la Paralelización
+La naturaleza algorítmica de este problema presenta un alto grado de paralelismo de datos. Dado que la generación y evaluación matemática de cada punto $(x, y)$ es un proceso estrictamente independiente de los demás, no existen dependencias de datos que bloqueen la ejecución. 
 
-Imaginar que tenemos un tablero de dardos cuadrado que mide 2 x 2 metros. Justo en el centro, dibujamos un círculo que toca los cuatro bordes del cuadrado. Ese círculo tiene un radio de r = 1.Si lanzamos muchos dardos completamente al azar hacia el tablero, algunos caerán dentro del círculo y otros en las esquinas del cuadrado (fuera del círculo).
+Para lograr una estimación con una precisión aceptable de $\pi$, se requiere que el volumen de iteraciones ($N$) sea computacionalmente masivo. Por lo tanto, el cálculo iterativo secuencial resulta ineficiente, haciendo de este algoritmo un candidato ideal para ser distribuido entre múltiples hilos y núcleos de procesamiento.
 
-¿Esto qué tiene que ver con nuestro problema con el calculo del número Pi?
+## 5. Metodología y Versiones de Desarrollo
 
-  Área del cuadrado: 4
-  Área del circulo: 1
+### Versión 1 (V1): Línea Base Secuencial y Perfilado
+Desarrollo de un programa base en lenguaje **C** ejecutado de forma escalar en un único núcleo. El algoritmo consistirá en un ciclo iterativo masivo para generar las coordenadas de punto flotante y contarlas. El objetivo estricto de esta fase es capturar el tiempo secuencial absoluto para las futuras métricas de rendimiento.
 
-Si dividimos el área del círculo entre el área del cuadrado, obtenemos la probabilidad exacta de que un dardo caiga dentro del círculo: pi/4 = 45 y si volvemos a multiplicar este resultado, nos da el mismo pi. 
+### Versión 2 (V2): Memoria Compartida (OpenMP)
+Implementación de paralelismo de CPU mediante directivas de compilador **OpenMP**. El volumen masivo de iteraciones $N$ se fragmentará equitativamente y se distribuirá entre los múltiples hilos lógicos del procesador local, operando de manera simultánea sobre el mismo espacio de memoria RAM compartida.
 
-  La computadora no puede ver si un dardo (punto aleatorio) cayó dentro del círculo dibujado, este necesita de reglas o ecuaciones matemáticas. Por eso usamos esa ecuación. 
-
-¿POR QUÉ ES PARALELIZABLE?
-
-Cuando generamos un dardo aleatorio, dandole un plano (x,y), usamos el Teorema de Pitágoras. Calcula la distancia desde el centro del tablero (0,0) hasta donde cayó el dardo (x,y). Hay dos posibilidades: 
-    -Si la suma de las coordenadas al cuadrado es menor o igual a 1, el dardo está a una distancia permitida y cayó dentro del circulo. 
-    -Si es mayor a 1, el dardo cayó en una esquina, fuera del círculo. 
-
-Hacemos uso de esto, porque si lanzamos muy pocos puntos (dardos) nos dará un valor muy malo y nada preciso de pi. Para que sea preciso, necesitamos muchos puntos (dardos). Es por eso que es un problema que se puede dividir el trabajo, en lugar de evaluar punto por punto, usando múltples hilos de procesamiento al mismo tiempo. 
-
-
-DATOS: 
-
-
-
-¿QUÉ VERSIONES SE HARÁN? 
-
-Versión 1: Secuencial -> Línea base y perfilado
-
-Desarrollar un programa en lenguaje C que se ejecute en un único núcleo y un solo hilo de procesamiento. El algoritmo va a consistir en un ciclo iterativo masivo que generará N partes de coordenadas (x, y) de un punto flotante, evaluándose en la ecuación propuesta. 
-Esto con el objetivo de capturar el tiempo secuencial absoluto. 
-
-Versión 2: Memoria compartida (OpenMP)
-
-Para este proyecto se va a utilizar directivas de compilador OpenMP en C. El volumen de iteraciones N se fragmentará y se va a distribuir entre 12 hilos lógicos del procesador local, operando todos sobre el mismo espacio de memoria RAM. 
-
-Versión 3: Aceleración masiva por GPU (CUDA)
-
-Para escalar la simulación Monte Carlo, se va a desarrollar un Kernel en CUDA. En lugar de usar muchos hilos en el procesador principal, la carga computacional se va a distribuir en núcleos simultáneos en bloques dentro de la tarjeta gráfica (GPU).
+### Versión 3 (V3): Aceleración Masiva por GPU (CUDA)
+Escalamiento de la simulación trasladando el cómputo a un hardware acelerador. Se desarrollará un *kernel* en **CUDA** de NVIDIA. En lugar de utilizar los hilos del procesador central, la carga computacional será distribuida a través de bloques de hilos simultáneos dentro de la tarjeta gráfica (GPU), aprovechando su arquitectura paralela masiva.
