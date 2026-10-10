@@ -34,7 +34,7 @@ Repositorio de  equipo 10 para las practicas 1 - 6 y el proyecto integrador.
 | **Núcleos físicos / hilos lógicos** | 6 / 12 |
 | **Frecuencia base / turbo** | 3 GHz / 4 GHz  |
 | **Caché L1/L2/L3** |  32 KB por núcleo / 512 KB por núcleo / 4MB compartida |
-| **Memoria RAM** |  7.4 GiB (es la cantidad de memoria física que Windows le tiene asignada a WSL2)  |
+| **Memoria RAM** |  7.4 GiB |
 | **Extensiones vectoriales** | AVX, AVX2, FMA, SSE4_2 |
 | **Sistema operativo y kernel** | Ubuntu en WSL2  |
 | **Compilador** | gcc 13.3.0 |
