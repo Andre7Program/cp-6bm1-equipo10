@@ -1,7 +1,5 @@
 # Práctica 1 — Plataformas y herramientas
 
-Entrega: 
-
 ## Reproducir todo (dos comandos)
 
 ```bash
